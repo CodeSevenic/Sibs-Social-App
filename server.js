@@ -10,20 +10,21 @@ app.use(cors());
 app.use(cookieParser());
 
 // Connect to MongoDB
-const URL = process.env.MONGODB_URL;
-mongoose.connect(
-  URL,
-  {
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (err) => {
-    if (err) throw err;
+const URI = process.env.MONGODB_URI;
+
+const connectToMongoDB = async () => {
+  try {
+    await mongoose.connect(URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log('Connected to MongoDB');
+  } catch (err) {
+    console.error('Error connecting to MongoDB:', err.message);
   }
-);
+};
+
+connectToMongoDB();
 
 app.get('/', (req, res) => {
   res.json({ msg: 'Welcome to the server' });
