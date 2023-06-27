@@ -11,6 +11,19 @@ app.use(cookieParser());
 
 // Connect to MongoDB
 const URL = process.env.MONGODB_URL;
+mongoose.connect(
+  URL,
+  {
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  (err) => {
+    if (err) throw err;
+    console.log('Connected to MongoDB');
+  }
+);
 
 app.get('/', (req, res) => {
   res.json({ msg: 'Welcome to the server' });
