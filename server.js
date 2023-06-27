@@ -10,7 +10,7 @@ app.use(cors());
 app.use(cookieParser());
 
 // Connect to MongoDB
-const URI = process.env.MONGODB_URL;
+const URL = process.env.MONGODB_URL;
 
 app.get('/', (req, res) => {
   res.json({ msg: 'Welcome to the server' });
