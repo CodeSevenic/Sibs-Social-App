@@ -9,6 +9,9 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
+// Routes
+app.use('/api', require('./routes/authRouter'));
+
 // Connect to MongoDB
 const URI = process.env.MONGODB_URI;
 
