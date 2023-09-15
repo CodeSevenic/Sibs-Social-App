@@ -9,6 +9,24 @@ const authCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  login: async (req, res) => {
+    try {
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  logout: async (req, res) => {
+    try {
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  generateAccessToken: async (req, res) => {
+    try {
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
 };
 
 module.exports = authCtrl;
