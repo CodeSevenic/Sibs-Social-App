@@ -31,6 +31,27 @@ const userSchema = new mongoose.Schema(
       default:
         'https://res.cloudinary.com/dq7l8216n/image/upload/v1628580399/avatar/avatar_cugq40.png',
     },
+    role: {
+      type: String,
+      default: 'user',
+    },
+    gender: {
+      type: String,
+      default: 'male',
+    },
+    mobile: {
+      type: String,
+      default: '',
+    },
+    address: {
+      type: String,
+      default: '',
+    },
+    story: {
+      type: String,
+      default: '',
+      maxlength: 200,
+    },
   },
   {
     timestamps: true,
