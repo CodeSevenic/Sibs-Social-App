@@ -10,3 +10,5 @@ const authCtrl = {
     }
   },
 };
+
+module.exports = authCtrl;
