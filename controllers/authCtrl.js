@@ -17,10 +17,21 @@ const authCtrl = {
         return res.status(400).json({ msg: 'Password must be at least 6 characters long.' });
       // Password Encryption
       const passwordHash = await bcrypt.hash(password, 12);
-      console.log('Hashed Password: ', passwordHash);
+
+      // create new user
+      const newUser = new Users({
+        fullname,
+        username: newUserName,
+        email,
+        password: passwordHash,
+        gender,
+      });
+
+      // const access_token = createAccessToken({ id: newUser._id });
+      // const refresh_token = createRefreshToken({ id: newUser._id });
 
       console.log(newUserName);
-      return res.json({ msg: 'Successfully Registered!' });
+      return res.json({ msg: 'Registered successfully!', console: newUser });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
