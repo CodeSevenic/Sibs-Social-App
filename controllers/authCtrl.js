@@ -15,9 +15,9 @@ const authCtrl = {
       // check if password is at least 6 characters long
       if (password.length < 6)
         return res.status(400).json({ msg: 'Password must be at least 6 characters long.' });
-
       // Password Encryption
       const passwordHash = await bcrypt.hash(password, 12);
+      console.log('Hashed Password: ', passwordHash);
 
       console.log(newUserName);
       return res.json({ msg: 'Successfully Registered!' });
