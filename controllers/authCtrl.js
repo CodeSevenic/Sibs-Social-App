@@ -27,11 +27,15 @@ const authCtrl = {
         gender,
       });
 
-      // const access_token = createAccessToken({ id: newUser._id });
-      // const refresh_token = createRefreshToken({ id: newUser._id });
+      const access_token = createAccessToken({ id: newUser._id });
+      const refresh_token = createRefreshToken({ id: newUser._id });
 
       console.log(newUserName);
-      return res.json({ msg: 'Registered successfully!', console: newUser });
+      return res.json({
+        msg: 'Registered successfully!',
+        access_token: access_token,
+        refresh_token: refresh_token,
+      });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
