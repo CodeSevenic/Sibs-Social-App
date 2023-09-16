@@ -32,13 +32,12 @@ const authCtrl = {
 
       // Set a cookie named 'refreshtoken' with the value of the 'refresh_token' variable
       res.cookie('refreshtoken', refresh_token, {
-        // Set the 'httpOnly' option to true to prevent client-side scripts from accessing the cookie
         httpOnly: true,
-        // Set the 'path' option to '/api/refresh_token' so that the cookie is only sent to requests that match this path
         path: '/api/refresh_token',
-        // Set the 'maxAge' option to 30 weeks (in milliseconds) so that the cookie expires after a certain amount of time
-        maxAge: 30 * 7 * 24 * 60 * 60 * 1000,
+        maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
       });
+
+      await newUser.save();
 
       res.json({
         msg: 'Registered successfully!',
