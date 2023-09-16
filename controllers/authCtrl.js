@@ -40,7 +40,7 @@ const authCtrl = {
       await newUser.save();
 
       res.json({
-        msg: 'Registered successfully!',
+        msg: 'Register success!',
         access_token,
         user: {
           ...newUser._doc,
@@ -59,7 +59,24 @@ const authCtrl = {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ msg: 'Password is incorrect.' });
 
-    res.json({ msg: 'Login success!', user });
+    const access_token = createAccessToken({ id: user._id });
+    const refresh_token = createRefreshToken({ id: user._id });
+
+    // Set a cookie named 'refreshtoken' with the value of the 'refresh_token' variable
+    res.cookie('refreshtoken', refresh_token, {
+      httpOnly: true,
+      path: '/api/refresh_token',
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+    });
+
+    res.json({
+      msg: 'Login success!',
+      access_token,
+      user: {
+        ...user._doc,
+        password: '',
+      },
+    });
     try {
     } catch (err) {
       return res.status(500).json({ msg: err.message });
