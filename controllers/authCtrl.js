@@ -52,6 +52,14 @@ const authCtrl = {
     }
   },
   login: async (req, res) => {
+    const { email, password } = req.body;
+    const user = await Users.findOne({ email }).populate('followers following', '-password');
+    if (!user) return res.status(400).json({ msg: 'This email does not exist.' });
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) return res.status(400).json({ msg: 'Password is incorrect.' });
+
+    res.json({ msg: 'Login success!', user });
     try {
     } catch (err) {
       return res.status(500).json({ msg: err.message });
