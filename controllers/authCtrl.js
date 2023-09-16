@@ -30,11 +30,23 @@ const authCtrl = {
       const access_token = createAccessToken({ id: newUser._id });
       const refresh_token = createRefreshToken({ id: newUser._id });
 
-      console.log(newUserName);
-      return res.json({
+      // Set a cookie named 'refreshtoken' with the value of the 'refresh_token' variable
+      res.cookie('refreshtoken', refresh_token, {
+        // Set the 'httpOnly' option to true to prevent client-side scripts from accessing the cookie
+        httpOnly: true,
+        // Set the 'path' option to '/api/refresh_token' so that the cookie is only sent to requests that match this path
+        path: '/api/refresh_token',
+        // Set the 'maxAge' option to 30 weeks (in milliseconds) so that the cookie expires after a certain amount of time
+        maxAge: 30 * 7 * 24 * 60 * 60 * 1000,
+      });
+
+      res.json({
         msg: 'Registered successfully!',
-        access_token: access_token,
-        refresh_token: refresh_token,
+        access_token,
+        user: {
+          ...newUser._doc,
+          password: '',
+        },
       });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
