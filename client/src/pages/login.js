@@ -11,24 +11,25 @@ const Login = () => {
   };
   return (
     <div className="auth_page">
+      <h3>KasiChat</h3>
       <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
+        <div className="form-group">
+          <label htmlFor="exampleInputEmail1">Email address</label>
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
           />
-          <small id="emailHelp" class="form-text text-muted">
+          <small id="emailHelp" className="form-text text-muted">
             We'll never share your email with anyone else.
           </small>
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" />
+        <div className="form-group">
+          <label htmlFor="exampleInputPassword1">Password</label>
+          <input type="password" className="form-control" id="exampleInputPassword1" />
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>
