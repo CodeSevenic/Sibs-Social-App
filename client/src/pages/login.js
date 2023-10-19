@@ -47,6 +47,12 @@ const Login = () => {
         >
           Submit
         </button>
+        <p className="my-2">
+          You don't have an account?{' '}
+          <a href="/register" style={{ color: 'crimson' }}>
+            Register Now
+          </a>
+        </p>
       </form>
     </div>
   );
