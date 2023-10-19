@@ -9,6 +9,7 @@ const Login = () => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
+
   return (
     <div className="auth_page">
       <h3>KasiChat</h3>
