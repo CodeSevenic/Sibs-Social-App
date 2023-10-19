@@ -20,6 +20,8 @@ const Login = () => {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            onChange={handleChangeInput}
+            value={email}
           />
           <small id="emailHelp" className="form-text text-muted">
             We'll never share your email with anyone else.
@@ -27,7 +29,13 @@ const Login = () => {
         </div>
         <div className="form-group">
           <label htmlFor="exampleInputPassword1">Password</label>
-          <input type="password" className="form-control" id="exampleInputPassword1" />
+          <input
+            type="password"
+            className="form-control"
+            id="exampleInputPassword1"
+            onChange={handleChangeInput}
+            value={password}
+          />
         </div>
         <button type="submit" className="btn btn-primary">
           Submit
