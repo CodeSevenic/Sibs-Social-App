@@ -22,6 +22,7 @@ const Login = () => {
             aria-describedby="emailHelp"
             onChange={handleChangeInput}
             value={email}
+            name="email"
           />
           <small id="emailHelp" className="form-text text-muted">
             We'll never share your email with anyone else.
@@ -35,6 +36,7 @@ const Login = () => {
             id="exampleInputPassword1"
             onChange={handleChangeInput}
             value={password}
+            name="password"
           />
         </div>
         <button type="submit" className="btn btn-primary">
