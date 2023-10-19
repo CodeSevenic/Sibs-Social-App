@@ -40,7 +40,11 @@ const Login = () => {
             name="password"
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button
+          type="submit"
+          className="btn btn-dark w-100"
+          disabled={email && password ? false : true}
+        >
           Submit
         </button>
       </form>
