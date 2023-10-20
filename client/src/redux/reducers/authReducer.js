@@ -1,4 +1,4 @@
-﻿import { TYPES } from '../actions/authActions';
+﻿import { TYPES } from '../actions/authAction';
 
 const initialState = {
   token: localStorage.getItem('token'),
@@ -7,7 +7,7 @@ const initialState = {
   user: null,
 };
 
-const authReducer = (state = {}, action) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case TYPES.AUTH:
       return {
