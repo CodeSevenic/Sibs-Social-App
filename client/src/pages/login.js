@@ -1,13 +1,18 @@
 ﻿import React, { useState } from 'react';
+import { login } from '../redux/actions/authAction';
+const { useDispatch } = require('react-redux');
 
 const Login = () => {
   const initialState = { email: '', password: '' };
   const [userData, setUserData] = useState(initialState);
   const { email, password } = userData;
 
+  const dispatch = useDispatch();
+
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
+    dispatch(login(userData));
   };
 
   return (
