@@ -23,7 +23,7 @@ const Login = () => {
   return (
     <div className="auth_page">
       <form onSubmit={handleSubmit}>
-        <h3>KasiChat</h3>
+        <h3 className="text-center mb-3">KasiChat</h3>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Email address</label>
           <input
