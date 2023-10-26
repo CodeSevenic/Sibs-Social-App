@@ -12,12 +12,12 @@ const Login = () => {
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
-    dispatch(login(userData));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('on Submit: ', userData);
+    dispatch(login(userData));
   };
 
   return (
