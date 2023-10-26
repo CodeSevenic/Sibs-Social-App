@@ -15,10 +15,14 @@ const Login = () => {
     dispatch(login(userData));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="auth_page">
       <h3>KasiChat</h3>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Email address</label>
           <input
