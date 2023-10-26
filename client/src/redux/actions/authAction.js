@@ -2,9 +2,8 @@
   AUTH: 'AUTH',
 };
 
-export const login = (formData) => {
+export const login = (data) => {
   try {
-    console.log(formData);
   } catch (error) {
     console.log(error);
   }
