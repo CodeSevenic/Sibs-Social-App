@@ -22,8 +22,8 @@ const Login = () => {
 
   return (
     <div className="auth_page">
-      <h3>KasiChat</h3>
       <form onSubmit={handleSubmit}>
+        <h3>KasiChat</h3>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Email address</label>
           <input
