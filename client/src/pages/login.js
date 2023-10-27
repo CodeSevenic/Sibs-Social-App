@@ -45,7 +45,7 @@ const Login = () => {
           <label htmlFor="exampleInputPassword1">Password</label>
           <div className="pass">
             <input
-              type="password"
+              type={typePass ? 'text' : 'password'}
               className="form-control"
               id="exampleInputPassword1"
               onChange={handleChangeInput}
