@@ -7,6 +7,8 @@ const Login = () => {
   const [userData, setUserData] = useState(initialState);
   const { email, password } = userData;
 
+  const [typePass, setTypePass] = useState(false);
+
   const dispatch = useDispatch();
 
   const handleChangeInput = (e) => {
@@ -41,14 +43,17 @@ const Login = () => {
         </div>
         <div className="form-group">
           <label htmlFor="exampleInputPassword1">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="exampleInputPassword1"
-            onChange={handleChangeInput}
-            value={password}
-            name="password"
-          />
+          <div className="pass">
+            <input
+              type="password"
+              className="form-control"
+              id="exampleInputPassword1"
+              onChange={handleChangeInput}
+              value={password}
+              name="password"
+            />
+            <small onClick={() => setTypePass(!typePass)}>{typePass ? 'Hide' : 'Show'}</small>
+          </div>
         </div>
         <button
           type="submit"
