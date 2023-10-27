@@ -1,21 +1,11 @@
 ﻿import { TYPES } from '../actions/authAction';
 
-const initialState = {
-  token: localStorage.getItem('token'),
-  isAuthenticated: null,
-  isLoading: false,
-  user: null,
-};
+const initialState = {};
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case TYPES.AUTH:
-      return {
-        ...state,
-        ...action.payload,
-        isAuthenticated: true,
-        isLoading: false,
-      };
+      return action.payload;
 
     default:
       return state;
