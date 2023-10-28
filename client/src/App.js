@@ -3,9 +3,12 @@ import PageRender from './PageRender';
 import Home from './pages/home';
 import Login from './pages/login';
 
+import Notify from './components/notify/Notify';
+
 function App() {
   return (
     <Router>
+      <Notify />
       <input type="checkbox" name="theme" id="theme" />
       <div className="App">
         <div className="main">
