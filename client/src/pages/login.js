@@ -52,7 +52,7 @@ const Login = () => {
               value={password}
               name="password"
             />
-            <small onClick={() => setTypePass(!typePass)}>{typePass ? 'Hide' : 'Show'}</small>
+            {/* <small onClick={() => setTypePass(!typePass)}>{typePass ? 'Hide' : 'Show'}</small> */}
           </div>
         </div>
         <button
