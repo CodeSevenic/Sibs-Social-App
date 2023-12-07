@@ -12,6 +12,7 @@ const Toast = ({ msg, handleShow, bgColor }) => {
           className="ml-2 mb-1 close text-light"
           data-dismiss="toast"
           style={{ outline: 'none' }}
+          onClick={handleShow}
         >
           &times;
         </button>
