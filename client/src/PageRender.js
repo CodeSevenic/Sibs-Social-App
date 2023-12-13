@@ -1,9 +1,26 @@
 ﻿import React from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import NotFound from './components/NotFound';
 
 // This function generates a page component based on the page name
-const generatePage = (pageName) => {
+const GeneratePage = (pageName) => {
+  const history = useHistory();
+  // If user is logged in, don't allow them to go to the login or register pages
+  const { auth } = useSelector((state) => state);
+  if (auth.token) {
+    switch (pageName) {
+      case 'login':
+      case 'register':
+        pageName = 'home';
+        history.push('/');
+        break;
+      default:
+        break;
+    }
+  }
+
   // Dynamically import the component using the page name
   const component = () => require(`./pages/${pageName}`).default;
   try {
@@ -29,7 +46,7 @@ const PageRender = () => {
     pageName = `${page}`;
   }
   // Generate the page component and return it
-  return generatePage(pageName);
+  return GeneratePage(pageName);
 };
 
 export default PageRender;

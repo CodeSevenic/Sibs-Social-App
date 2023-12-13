@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { login } from '../redux/actions/authAction';
 
 const Register = () => {
-  const { auth } = useSelector((state) => state);
-
-  const history = useHistory();
   const dispatch = useDispatch();
 
   const initialState = { email: '', password: '' };
@@ -14,10 +10,6 @@ const Register = () => {
   const { email, password } = userData;
 
   const [typePass, setTypePass] = useState(false);
-
-  useEffect(() => {
-    if (auth.token) history.push('/');
-  }, [auth.token, history]);
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
