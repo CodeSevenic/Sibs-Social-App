@@ -61,7 +61,7 @@ const Register = () => {
           className="btn btn-dark w-100"
           disabled={email && password ? false : true}
         >
-          Submit
+          Register
         </button>
         <p className="my-2">
           You already have an account?{' '}
