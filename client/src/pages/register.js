@@ -6,11 +6,9 @@ import { login } from '../redux/actions/authAction';
 const Register = () => {
   const { auth } = useSelector((state) => state);
 
-  const history = useHistory();
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (auth.token) history.push('/');
-  }, [auth.token, history]);
+  const history = useHistory();
 
   const initialState = { email: '', password: '' };
   const [userData, setUserData] = useState(initialState);
@@ -18,7 +16,9 @@ const Register = () => {
 
   const [typePass, setTypePass] = useState(false);
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    if (auth.token) history.push('/');
+  }, [auth.token, history]);
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
