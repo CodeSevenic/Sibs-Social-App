@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/actions/authAction';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -63,10 +64,10 @@ const Register = () => {
           Submit
         </button>
         <p className="my-2">
-          You don't have an account?{' '}
-          <a href="/register" style={{ color: 'crimson' }}>
-            Register Now
-          </a>
+          You already have an account?{' '}
+          <Link to="/login" style={{ color: 'crimson' }}>
+            Login Now
+          </Link>
         </p>
       </form>
     </div>
