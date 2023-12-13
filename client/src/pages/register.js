@@ -14,7 +14,7 @@ const Register = () => {
     gender: 'male',
   };
   const [userData, setUserData] = useState(initialState);
-  const { email, password } = userData;
+  const { fullname, username, email, password, cf_password, gender } = userData;
 
   const [typePass, setTypePass] = useState(false);
 
