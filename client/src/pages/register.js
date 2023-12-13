@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../redux/actions/authAction';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
   const dispatch = useDispatch();
 
-  const initialState = { email: '', password: '' };
+  const initialState = {
+    fullname: '',
+    username: '',
+    email: '',
+    password: '',
+    cf_password: '',
+    gender: 'male',
+  };
   const [userData, setUserData] = useState(initialState);
   const { email, password } = userData;
 
@@ -20,7 +26,6 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('on Submit: ', userData);
-    dispatch(login(userData));
   };
 
   return (
