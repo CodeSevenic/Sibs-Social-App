@@ -60,7 +60,7 @@ const Login = () => {
           className="btn btn-dark w-100"
           disabled={email && password ? false : true}
         >
-          Submit
+          Login
         </button>
         <p className="my-2">
           You don't have an account?{' '}

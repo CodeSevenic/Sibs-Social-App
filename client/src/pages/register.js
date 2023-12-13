@@ -56,11 +56,7 @@ const Register = () => {
             <small onClick={() => setTypePass(!typePass)}>{typePass ? 'Hide' : 'Show'}</small>
           </div>
         </div>
-        <button
-          type="submit"
-          className="btn btn-dark w-100"
-          disabled={email && password ? false : true}
-        >
+        <button type="submit" className="btn btn-dark w-100">
           Register
         </button>
         <p className="my-2">
