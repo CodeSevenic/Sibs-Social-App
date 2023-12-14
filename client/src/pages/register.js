@@ -97,14 +97,14 @@ const Register = () => {
           <label htmlFor="cf_password">Confirm Password</label>
           <div className="pass">
             <input
-              type={typePass ? 'text' : 'password'}
+              type={typeCfPass ? 'text' : 'password'}
               className="form-control"
               id="cf_password"
               onChange={handleChangeInput}
               value={cf_password}
               name="cf_password"
             />
-            <small onClick={() => setTypePass(!typePass)}>{typePass ? 'Hide' : 'Show'}</small>
+            <small onClick={() => setTypeCfPass(!typeCfPass)}>{typeCfPass ? 'Hide' : 'Show'}</small>
           </div>
         </div>
         <button type="submit" className="btn btn-dark w-100">
