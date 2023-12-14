@@ -15,8 +15,6 @@ const GeneratePage = (pageName) => {
     }
   }
 
-  console.log('pageName: ', pageName);
-
   // Dynamically import the component using the page name
   const Component = lazy(() => import(`./pages/${pageName}`).catch(() => ({ default: NotFound })));
 
