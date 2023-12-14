@@ -47,18 +47,3 @@ function App() {
 }
 
 export default App;
-
-const Root = () => {
-  return (
-    <>
-      <div>
-        <Link to={'/'}>Home</Link>
-        <Link to={'/login'}>Login</Link>
-      </div>
-
-      <div>
-        <Outlet />
-      </div>
-    </>
-  );
-};
