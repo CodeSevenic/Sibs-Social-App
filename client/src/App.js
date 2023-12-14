@@ -23,8 +23,8 @@ function App() {
       <div className="App">
         <div className="main">
           <Route exact path="/" component={auth.token ? Home : Login} />
-          <Route path="/:page" component={PageRender} />
-          <Route path="/:page/:id" component={PageRender} />
+          <Route exact path="/:page" component={PageRender} />
+          <Route exact path="/:page/:id" component={PageRender} />
         </div>
       </div>
     </Router>
