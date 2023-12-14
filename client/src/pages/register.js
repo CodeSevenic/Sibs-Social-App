@@ -107,9 +107,17 @@ const Register = () => {
             <small onClick={() => setTypeCfPass(!typeCfPass)}>{typeCfPass ? 'Hide' : 'Show'}</small>
           </div>
         </div>
+
+        <div className="row justify-content-between mx-0 mb-1">
+          <label htmlFor="gender">
+            Male: <input type="radio" />
+          </label>
+        </div>
+
         <button type="submit" className="btn btn-dark w-100">
           Register
         </button>
+
         <p className="my-2">
           Already have an account?{' '}
           <Link to="/login" style={{ color: 'crimson' }}>
