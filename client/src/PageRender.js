@@ -5,13 +5,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 // Function to generate a page component based on the page name
 const GeneratePage = (pageName) => {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const { auth } = useSelector((state) => state);
 
   if (auth.token) {
     if (pageName === 'login' || pageName === 'register') {
       pageName = 'home';
-      history.push('/');
+      navigate('/');
     }
   }
 
@@ -29,7 +29,6 @@ const GeneratePage = (pageName) => {
 
 // Main PageRender component
 const PageRender = () => {
-  console.log('PageRender');
   const { page, id } = useParams();
   const pageName = id ? `${page}/[id]` : page;
 
