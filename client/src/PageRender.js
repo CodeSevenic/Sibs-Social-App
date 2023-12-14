@@ -10,6 +10,7 @@ const GeneratePage = (pageName) => {
   // If user is logged in, don't allow them to go to the login or register pages
   const { auth } = useSelector((state) => state);
   if (auth.token) {
+    console.log('auth.token: ', auth.token);
     switch (pageName) {
       case 'login':
       case 'register':
