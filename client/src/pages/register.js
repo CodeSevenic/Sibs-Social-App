@@ -21,6 +21,8 @@ const Register = () => {
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
+    console.log('name: ', name);
+    console.log('value: ', value);
     setUserData({ ...userData, [name]: value });
   };
 
