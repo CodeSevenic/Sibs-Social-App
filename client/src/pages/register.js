@@ -32,6 +32,7 @@ const Register = () => {
     <div className="auth_page">
       <form onSubmit={handleSubmit}>
         <h3 className="text-center mb-3">KasiChat</h3>
+
         <div className="form-group">
           <label htmlFor="fullname">Full Name</label>
           <input
@@ -46,6 +47,22 @@ const Register = () => {
             We'll never share your email with anyone else.
           </small>
         </div>
+
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            className="form-control"
+            id="username"
+            onChange={handleChangeInput}
+            value={username}
+            name="username"
+          />
+          <small className="form-text text-muted">
+            We'll never share your email with anyone else.
+          </small>
+        </div>
+
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Email address</label>
           <input
@@ -70,6 +87,21 @@ const Register = () => {
               onChange={handleChangeInput}
               value={password}
               name="password"
+            />
+            <small onClick={() => setTypePass(!typePass)}>{typePass ? 'Hide' : 'Show'}</small>
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="cf_password">Confirm Password</label>
+          <div className="pass">
+            <input
+              type={typePass ? 'text' : 'password'}
+              className="form-control"
+              id="cf_password"
+              onChange={handleChangeInput}
+              value={cf_password}
+              name="cf_password"
             />
             <small onClick={() => setTypePass(!typePass)}>{typePass ? 'Hide' : 'Show'}</small>
           </div>
