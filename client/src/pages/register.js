@@ -109,8 +109,8 @@ const Register = () => {
         </div>
 
         <div className="row justify-content-between mx-0 mb-1">
-          <label htmlFor="gender">
-            Male: <input type="radio" />
+          <label htmlFor="male">
+            Male: <input type="radio" id="male" />
           </label>
         </div>
 
