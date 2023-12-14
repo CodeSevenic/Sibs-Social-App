@@ -1,52 +1,38 @@
-﻿import React from 'react';
+﻿import React, { lazy, Suspense } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
 import NotFound from './components/NotFound';
+import { useNavigate, useParams } from 'react-router-dom';
 
-// This function generates a page component based on the page name
+// Function to generate a page component based on the page name
 const GeneratePage = (pageName) => {
-  const history = useHistory();
-  // If user is logged in, don't allow them to go to the login or register pages
+  const history = useNavigate();
   const { auth } = useSelector((state) => state);
+
   if (auth.token) {
-    console.log('auth.token: ', auth.token);
-    switch (pageName) {
-      case 'login':
-      case 'register':
-        pageName = 'home';
-        history.push('/');
-        break;
-      default:
-        break;
+    if (pageName === 'login' || pageName === 'register') {
+      pageName = 'home';
+      history.push('/');
     }
   }
 
+  console.log('pageName: ', pageName);
+
   // Dynamically import the component using the page name
-  const component = () => require(`./pages/${pageName}`).default;
-  try {
-    // Create an element using the imported component
-    return React.createElement(component());
-  } catch (err) {
-    // If there's an error, log it and return the NotFound component
-    console.warn(err);
-    return <NotFound />;
-  }
+  const Component = lazy(() => import(`./pages/${pageName}`).catch(() => ({ default: NotFound })));
+
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Component />
+    </Suspense>
+  );
 };
 
-// This is the main PageRender component
+// Main PageRender component
 const PageRender = () => {
-  // Get the page and id parameters from the URL
+  console.log('PageRender');
   const { page, id } = useParams();
-  let pageName = '';
-  // If there's an id parameter, use the [id] version of the page name
-  if (id) {
-    pageName = `${page}/[id]`;
-  } else {
-    // Otherwise, use the regular page name
-    pageName = `${page}`;
-  }
-  // Generate the page component and return it
+  const pageName = id ? `${page}/[id]` : page;
+
   return GeneratePage(pageName);
 };
 

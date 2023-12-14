@@ -1,5 +1,12 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  Link,
+  Outlet,
+  RouterProvider,
+} from 'react-router-dom';
 import PageRender from './PageRender';
 import Home from './pages/home';
 import Login from './pages/login';
@@ -12,23 +19,46 @@ function App() {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
 
+  const BrowserRouter = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/">
+        <Route index element={auth.token ? <Home /> : <Login />} />
+        <Route path="/:page" element={<PageRender />} />
+        <Route path="/:page/:id" element={<PageRender />} />
+      </Route>
+    )
+  );
+
   useEffect(() => {
     dispatch(refreshToken());
   }, [dispatch]);
 
   return (
-    <Router>
+    <>
       <Alert />
       <input type="checkbox" name="theme" id="theme" />
       <div className="App">
         <div className="main">
-          <Route exact path="/" component={auth.token ? Home : Login} />
-          <Route exact path="/:page" component={PageRender} />
-          <Route exact path="/:page/:id" component={PageRender} />
+          <RouterProvider router={BrowserRouter} />
         </div>
       </div>
-    </Router>
+    </>
   );
 }
 
 export default App;
+
+const Root = () => {
+  return (
+    <>
+      <div>
+        <Link to={'/'}>Home</Link>
+        <Link to={'/login'}>Login</Link>
+      </div>
+
+      <div>
+        <Outlet />
+      </div>
+    </>
+  );
+};
