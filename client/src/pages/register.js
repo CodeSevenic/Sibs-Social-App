@@ -120,6 +120,26 @@ const Register = () => {
               onChange={handleChangeInput}
             />
           </label>
+          <label htmlFor="female">
+            Female:{' '}
+            <input
+              type="radio"
+              id="female"
+              name="gender"
+              value="female"
+              onChange={handleChangeInput}
+            />
+          </label>
+          <label htmlFor="other">
+            Other:{' '}
+            <input
+              type="radio"
+              id="other"
+              name="gender"
+              value="other"
+              onChange={handleChangeInput}
+            />
+          </label>
         </div>
 
         <button type="submit" className="btn btn-dark w-100">
