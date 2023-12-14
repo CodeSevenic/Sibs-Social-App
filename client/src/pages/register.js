@@ -58,7 +58,7 @@ const Register = () => {
             className="form-control"
             id="username"
             onChange={handleChangeInput}
-            value={username}
+            value={username.toLocaleLowerCase().replace(/ /g, '')}
             name="username"
           />
           <small className="form-text text-muted">
