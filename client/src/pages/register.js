@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { register } from '../redux/actions/authAction';
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -21,14 +22,12 @@ const Register = () => {
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
-    console.log('name: ', name);
-    console.log('value: ', value);
     setUserData({ ...userData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('on Submit: ', userData);
+    dispatch(register(userData));
   };
 
   return (

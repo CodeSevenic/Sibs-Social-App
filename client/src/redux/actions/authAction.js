@@ -60,3 +60,16 @@ export const refreshToken = () => async (dispatch) => {
     }
   }
 };
+
+export const register = (data) => async (dispatch) => {
+  try {
+    console.log('register data: ', data);
+  } catch (err) {
+    dispatch({
+      type: GLOBALTYPES.ALERT,
+      payload: {
+        error: err.response.data.msg,
+      },
+    });
+  }
+};
