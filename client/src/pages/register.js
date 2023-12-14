@@ -17,6 +17,7 @@ const Register = () => {
   const { fullname, username, email, password, cf_password, gender } = userData;
 
   const [typePass, setTypePass] = useState(false);
+  const [typeCfPass, setTypeCfPass] = useState(false);
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
