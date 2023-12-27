@@ -82,7 +82,7 @@ export const register = (data) => async (dispatch) => {
       },
     });
 
-    // localStorage.setItem('firstLogin', true);
+    localStorage.setItem('firstLogin', true);
 
     dispatch({
       type: GLOBALTYPES.ALERT,
