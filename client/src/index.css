@@ -24,6 +24,13 @@
   margin: 0 auto;
 }
 
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 /* ----------------- AUTH --------------- */
 @import url('./styles/auth.css');
 
