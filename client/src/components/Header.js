@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../redux/actions/authAction';
 
@@ -15,6 +15,12 @@ const Header = () => {
 
   const { auth } = useSelector((state) => state);
 
+  const { pathname } = useLocation();
+
+  const isActive = (pn) => {
+    if (pn === pathname) return 'active';
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between align-middle">
       <Link className="navbar-brand" to="/">
@@ -24,7 +30,7 @@ const Header = () => {
       <div className="menu">
         <ul className="navbar-nav flex-row">
           {navLinks.map((link, index) => (
-            <li key={index} className="nav-item">
+            <li key={index} className={`nav-item ${isActive(link.path)}`}>
               <NavLink className="nav-link" to={link.path}>
                 <i className="material-icons">{link.icon}</i>
               </NavLink>
