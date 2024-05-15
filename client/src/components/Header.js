@@ -40,14 +40,14 @@ const Header = () => {
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a className="dropdown-item" href="#">
-                  Action
+                  Profile
                 </a>
                 <a className="dropdown-item" href="#">
-                  Another action
+                  Dark Mode
                 </a>
                 <div className="dropdown-divider"></div>
                 <a className="dropdown-item" href="#">
-                  Something else here
+                  Logout
                 </a>
               </div>
             </li>
