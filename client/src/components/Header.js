@@ -17,8 +17,10 @@ const Header = () => {
       <div className="menu">
         <ul className="navbar-nav flex-row">
           {navLinks.map((link, index) => (
-            <li className="nav-item" key={index}>
-              <Link to={link.path}>{link.label}</Link>
+            <li key={index} className="nav-item">
+              <NavLink className="nav-link" to={link.path} activeClassName="active" exact>
+                <i className="material-icons">{link.icon}</i>
+              </NavLink>
             </li>
           ))}
 
@@ -28,9 +30,8 @@ const Header = () => {
             </a>
           </li>
           <li className="nav-item dropdown">
-            <a
+            <span
               className="nav-link dropdown-toggle"
-              href="#"
               id="navbarDropdown"
               role="button"
               data-toggle="dropdown"
@@ -38,18 +39,18 @@ const Header = () => {
               aria-expanded="false"
             >
               User
-            </a>
+            </span>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a className="dropdown-item" href="#">
+              <Link className="dropdown-item" to="/profile">
                 Profile
-              </a>
-              <a className="dropdown-item" href="#">
+              </Link>
+              <Link className="dropdown-item" to="#">
                 Dark Mode
-              </a>
+              </Link>
               <div className="dropdown-divider"></div>
-              <a className="dropdown-item" href="#">
+              <Link className="dropdown-item" to="#">
                 Logout
-              </a>
+              </Link>
             </div>
           </li>
         </ul>
