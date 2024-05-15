@@ -1,24 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../redux/actions/authAction';
+
+const navLinks = [
+  { label: 'Home', icon: 'home', path: '/' },
+  { label: 'Message', icon: 'near_me', path: '/message' },
+  { label: 'Discover', icon: 'explore', path: '/discover' },
+  { label: 'Notify', icon: 'favorite', path: '/notify' },
+];
 
 const Header = () => {
-  const navLinks = [
-    { label: 'Home', icon: 'home', path: '/' },
-    { label: 'Message', icon: 'near_me', path: '/message' },
-    { label: 'Discover', icon: 'explore', path: '/discover' },
-    { label: 'Notify', icon: 'favorite', path: '/notify' },
-  ];
+  const dispatch = useDispatch();
+
+  const { auth } = useSelector((state) => state);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between align-middle">
-      <a className="navbar-brand" href="#">
+      <Link className="navbar-brand" to="/">
         KasiChat
-      </a>
+      </Link>
 
       <div className="menu">
         <ul className="navbar-nav flex-row">
           {navLinks.map((link, index) => (
             <li key={index} className="nav-item">
-              <NavLink className="nav-link" to={link.path} activeClassName="active" exact>
+              <NavLink className="nav-link" to={link.path}>
                 <i className="material-icons">{link.icon}</i>
               </NavLink>
             </li>
@@ -48,7 +55,7 @@ const Header = () => {
                 Dark Mode
               </Link>
               <div className="dropdown-divider"></div>
-              <Link className="dropdown-item" to="/">
+              <Link className="dropdown-item" to="/" onClick={() => dispatch(logout())}>
                 Logout
               </Link>
             </div>
