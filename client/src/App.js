@@ -11,9 +11,10 @@ import PageRender from './PageRender';
 import Home from './pages/home';
 import Login from './pages/login';
 import { useDispatch, useSelector } from 'react-redux';
+import { refreshToken } from './redux/actions/authAction';
 
 import Alert from './components/alert/Alert';
-import { refreshToken } from './redux/actions/authAction';
+import Header from './components/Header';
 
 function App() {
   const { auth } = useSelector((state) => state);
@@ -22,6 +23,7 @@ function App() {
   const BrowserRouter = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
+        <Header />
         <Route index element={auth.token ? <Home /> : <Login />} />
         <Route path="/:page" element={<PageRender />} />
         <Route path="/:page/:id" element={<PageRender />} />
