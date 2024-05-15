@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
   const navLinks = [
@@ -9,48 +9,52 @@ const Header = () => {
     { label: 'Notify', icon: 'favorite', path: '/notify' },
   ];
   return (
-    <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between align-middle">
-        <a className="navbar-brand" href="#">
-          KasiChat
-        </a>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between align-middle">
+      <a className="navbar-brand" href="#">
+        KasiChat
+      </a>
 
-        <div className="menu">
-          <ul className="navbar-nav flex-row">
-            <li className="nav-item active">
-              <a className="nav-link" href="#">
-                Home <span className="sr-only">(current)</span>
-              </a>
+      <div className="menu">
+        <ul className="navbar-nav flex-row">
+          {navLinks.map((link, index) => (
+            <li className="nav-item" key={index}>
+              <Link to={link.path}>{link.label}</Link>
             </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                User
+          ))}
+
+          <li className="nav-item active">
+            <a className="nav-link" href="#">
+              Home <span className="sr-only">(current)</span>
+            </a>
+          </li>
+          <li className="nav-item dropdown">
+            <a
+              className="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              User
+            </a>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a className="dropdown-item" href="#">
+                Profile
               </a>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="#">
-                  Profile
-                </a>
-                <a className="dropdown-item" href="#">
-                  Dark Mode
-                </a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="#">
-                  Logout
-                </a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </>
+              <a className="dropdown-item" href="#">
+                Dark Mode
+              </a>
+              <div className="dropdown-divider"></div>
+              <a className="dropdown-item" href="#">
+                Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 };
 

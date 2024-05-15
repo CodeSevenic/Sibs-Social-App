@@ -1,12 +1,5 @@
 import { useEffect } from 'react';
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  Link,
-  Outlet,
-  RouterProvider,
-} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import PageRender from './PageRender';
 import Home from './pages/home';
 import Login from './pages/login';
@@ -20,16 +13,6 @@ function App() {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const BrowserRouter = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path="/">
-        <Route index element={auth.token ? <Home /> : <Login />} />
-        <Route path="/:page" element={<PageRender />} />
-        <Route path="/:page/:id" element={<PageRender />} />
-      </Route>
-    )
-  );
-
   useEffect(() => {
     dispatch(refreshToken());
   }, [dispatch]);
@@ -39,9 +22,13 @@ function App() {
       <Alert />
       <input className="mt-[14]" type="checkbox" name="theme" id="theme" />
       <div className="App">
+        {auth.token && <Header />}
         <div className="main">
-          {auth.token && <Header />}
-          <RouterProvider router={BrowserRouter} />
+          <Routes>
+            <Route path="/" element={auth.token ? <Home /> : <Login />} />
+            <Route path="/:page" element={<PageRender />} />
+            <Route path="/:page/:id" element={<PageRender />} />
+          </Routes>
         </div>
       </div>
     </>
