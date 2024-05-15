@@ -30,7 +30,7 @@ const Header = () => {
       <div className="menu">
         <ul className="navbar-nav flex-row">
           {navLinks.map((link, index) => (
-            <li key={index} className={`nav-item ${isActive(link.path)}`}>
+            <li key={index} className={`nav-item px-2 ${isActive(link.path)}`}>
               <NavLink className="nav-link" to={link.path}>
                 <i className="material-icons">{link.icon}</i>
               </NavLink>
