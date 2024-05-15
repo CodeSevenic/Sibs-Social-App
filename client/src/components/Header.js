@@ -13,7 +13,7 @@ const navLinks = [
 const Header = () => {
   const dispatch = useDispatch();
 
-  const { auth } = useSelector((state) => state);
+  const { auth, theme } = useSelector((state) => state);
 
   const { pathname } = useLocation();
 
@@ -58,7 +58,7 @@ const Header = () => {
                 Profile
               </Link>
               <label htmlFor="theme" className="dropdown-item">
-                Dark Mode
+                {theme ? 'Light mode' : 'Dark mode'}
               </label>
               <div className="dropdown-divider"></div>
               <Link className="dropdown-item" to="/" onClick={() => dispatch(logout())}>
