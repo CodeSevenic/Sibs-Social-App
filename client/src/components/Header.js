@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../redux/actions/authAction';
+import { GLOBALTYPES } from '../redux/actions/globalTypes';
 
 const navLinks = [
   { label: 'Home', icon: 'home', path: '/' },
@@ -57,7 +58,11 @@ const Header = () => {
               <Link className="dropdown-item" to={`/profile/${auth.user._id}`}>
                 Profile
               </Link>
-              <label htmlFor="theme" className="dropdown-item">
+              <label
+                htmlFor="theme"
+                className="dropdown-item"
+                onClick={() => dispatch({ type: GLOBALTYPES.THEME, payload: !theme })}
+              >
                 {theme ? 'Light mode' : 'Dark mode'}
               </label>
               <div className="dropdown-divider"></div>
