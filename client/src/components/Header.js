@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between align-middle">
       <Link className="navbar-brand" to="/">
-        <strong>KasiChat</strong>
+        <strong className="navbar-brand p-0 m-0">KasiChat</strong>
       </Link>
 
       <div className="menu">
@@ -54,7 +54,7 @@ const Header = () => {
               User
             </span>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link className="dropdown-item" to="/profile">
+              <Link className="dropdown-item" to={`/profile/${auth.user._id}`}>
                 Profile
               </Link>
               <Link className="dropdown-item" to="/">
