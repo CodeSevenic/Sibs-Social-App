@@ -29,3 +29,6 @@
 
 /* -------------- LOADING ------------------ */
 @import url('./styles/loading.css');
+
+/* -------------- HEADER ------------------ */
+@import url('./styles/header.css');
