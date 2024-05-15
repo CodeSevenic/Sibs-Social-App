@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <Alert />
-      <input className="mt-[14]" type="checkbox" name="theme" id="theme" />
+      <input type="checkbox" name="theme" id="theme" />
       <div className="App">
         <div className="main">
           {auth.token && <Header />}
