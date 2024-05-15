@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between align-middle">
       <Link className="navbar-brand" to="/">
-        KasiChat
+        <strong>KasiChat</strong>
       </Link>
 
       <div className="menu">
