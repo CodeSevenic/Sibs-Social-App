@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../redux/actions/authAction';
 import { GLOBALTYPES } from '../redux/actions/globalTypes';
+import Avatar from './Avatar';
 
 const navLinks = [
   { label: 'Home', icon: 'home', path: '/' },
@@ -45,14 +46,14 @@ const Header = () => {
           </li>
           <li className="nav-item dropdown">
             <span
-              className="nav-link dropdown-toggle"
+              className="nav-link dropdown-toggle profile-img"
               id="navbarDropdown"
               role="button"
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <img src={auth.user.avatar} alt="avatar" className="avatar" />
+              <Avatar />
             </span>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link className="dropdown-item" to={`/profile/${auth.user._id}`}>
