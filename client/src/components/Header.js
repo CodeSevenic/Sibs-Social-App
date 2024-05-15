@@ -53,7 +53,7 @@ const Header = () => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <Avatar />
+              <Avatar src={auth.user.avatar} />
             </span>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link className="dropdown-item" to={`/profile/${auth.user._id}`}>

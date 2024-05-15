@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const Avatar = () => {
-  const { auth, theme } = useSelector((state) => state);
+const Avatar = ({ src }) => {
+  const { theme } = useSelector((state) => state);
   return (
     <img
-      src={auth.user.avatar}
+      src={src}
       alt="avatar"
       className="avatar"
       style={{
