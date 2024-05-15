@@ -23,7 +23,6 @@ function App() {
   const BrowserRouter = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
-        <Header />
         <Route index element={auth.token ? <Home /> : <Login />} />
         <Route path="/:page" element={<PageRender />} />
         <Route path="/:page/:id" element={<PageRender />} />
@@ -38,9 +37,10 @@ function App() {
   return (
     <>
       <Alert />
-      <input type="checkbox" name="theme" id="theme" />
+      <input className="mt-[14]" type="checkbox" name="theme" id="theme" />
       <div className="App">
         <div className="main">
+          {auth.token && <Header />}
           <RouterProvider router={BrowserRouter} />
         </div>
       </div>
