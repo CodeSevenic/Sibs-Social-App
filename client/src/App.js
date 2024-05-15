@@ -22,8 +22,8 @@ function App() {
       <Alert />
       <input className="mt-[14]" type="checkbox" name="theme" id="theme" />
       <div className="App">
-        {auth.token && <Header />}
         <div className="main">
+          {auth.token && <Header />}
           <Routes>
             <Route path="/" element={auth.token ? <Home /> : <Login />} />
             <Route path="/:page" element={<PageRender />} />
