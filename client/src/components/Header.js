@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navLinks = [
+    { label: 'Home', icon: 'home', path: '/' },
+    { label: 'Message', icon: 'near_me', path: '/message' },
+    { label: 'Discover', icon: 'explore', path: '/discover' },
+    { label: 'Notify', icon: 'favorite', path: '/notify' },
+  ];
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between align-middle">
