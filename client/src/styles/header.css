@@ -16,3 +16,66 @@
 .header .logo .navbar-brand {
   font-size: 2rem;
 }
+
+/* ------------- Header ------------ */
+.header .menu li {
+  opacity: 0.5;
+}
+
+.header .menu li.active {
+  opacity: 1;
+}
+
+.header .menu .material-icons {
+  font-size: 1.8rem;
+}
+
+.header .menu .dropdown-menu {
+  position: absolute;
+  left: inherit;
+  right: 0;
+}
+
+.header .menu label {
+  cursor: pointer;
+}
+
+/* ------------- Header Search ----------- */
+.header .search_form {
+  position: relative;
+}
+
+.header .search_form #search {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  min-width: 250px;
+  width: 100%;
+  outline: none;
+  text-indent: 5px;
+  border-radius: 3px;
+}
+
+.header .search_form .search_icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.header .search_form .search_icon .material-icons {
+  font-size: 0.9rem;
+  transform: translateY(3px);
+}
+
+.header .search_form .close_icon {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 12px;
+  pointer-events: none;
+}

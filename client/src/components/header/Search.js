@@ -9,13 +9,13 @@ const Search = () => {
         name="search"
         value={search}
         id="search"
-        onClick={(e) => setSearch(e.target.value.toLowerCase().replace(/ /g, ''))}
+        onChange={(e) => setSearch(e.target.value.toLowerCase().replace(/ /g, ''))}
       />
-      <div className="search_icon">
+      <div className="search_icon" style={{ opacity: search ? 0 : 0.3 }}>
         <span className="material-icons">search</span>
         <span>Search</span>
       </div>
-      <div className="close_search">&times;</div>
+      {/* <div className="close_search">&times;</div> */}
     </form>
   );
 };
