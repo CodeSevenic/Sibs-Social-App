@@ -9,7 +9,7 @@ const Avatar = ({ src }) => {
       alt="avatar"
       className="avatar"
       style={{
-        filter: theme ? '' : 'invert(1)',
+        filter: theme ? 'invert(1)' : 'invert(0)',
       }}
     />
   );
