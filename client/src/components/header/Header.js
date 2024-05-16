@@ -5,7 +5,7 @@ import Search from './Search';
 
 const Header = () => {
   return (
-    <div className="header">
+    <div className="header bg-light">
       <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between align-middle">
         <Link className="navbar-brand" to="/">
           <strong className="navbar-brand p-0 m-0">KasiChat</strong>
