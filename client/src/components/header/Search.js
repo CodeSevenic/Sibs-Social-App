@@ -8,6 +8,7 @@ const Search = () => {
         type="text"
         name="search"
         value={search}
+        id="search"
         placeholder="Search"
         onClick={(e) => setSearch(e.target.value.toLowerCase().replace(/ /g, ''))}
       />
