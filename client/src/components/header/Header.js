@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../redux/actions/authAction';
-import { GLOBALTYPES } from '../redux/actions/globalTypes';
-import Avatar from './Avatar';
+import { logout } from '../../redux/actions/authAction';
+import { GLOBALTYPES } from '../../redux/actions/globalTypes';
+import Avatar from '../Avatar';
 
 const navLinks = [
   { label: 'Home', icon: 'home', path: '/' },

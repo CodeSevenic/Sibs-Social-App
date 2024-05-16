@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { refreshToken } from './redux/actions/authAction';
 
 import Alert from './components/alert/Alert';
-import Header from './components/Header';
+import Header from './components/header/Header';
 import PrivateRouter from './customRouter/PrivateRouter';
 
 function App() {
