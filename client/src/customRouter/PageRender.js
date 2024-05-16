@@ -1,6 +1,6 @@
 ﻿import React, { lazy, Suspense } from 'react';
 import { useSelector } from 'react-redux';
-import NotFound from './components/NotFound';
+import NotFound from '../components/NotFound';
 import { useNavigate, useParams } from 'react-router-dom';
 
 // Function to generate a page component based on the page name
@@ -16,7 +16,7 @@ const GeneratePage = (pageName) => {
   }
 
   // Dynamically import the component using the page name
-  const Component = lazy(() => import(`./pages/${pageName}`).catch(() => ({ default: NotFound })));
+  const Component = lazy(() => import(`../pages/${pageName}`).catch(() => ({ default: NotFound })));
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -27,8 +27,18 @@ const GeneratePage = (pageName) => {
 
 // Main PageRender component
 const PageRender = () => {
+  const navigate = useNavigate();
   const { page, id } = useParams();
-  const pageName = id ? `${page}/[id]` : page;
+  const { auth } = useSelector((state) => state);
+  let pageName = '';
+
+  if (auth.token) {
+    if (id) {
+      pageName = `${page}/[id]`;
+    } else {
+      pageName = `${page}`;
+    }
+  }
 
   return GeneratePage(pageName);
 };
