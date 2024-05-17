@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Search = () => {
   const [search, setSearch] = useState('');
+  const [users, setUsers] = useState([]);
   return (
     <form className="search_form">
       <input
