@@ -70,12 +70,11 @@
   transform: translateY(3px);
 }
 
-.header .search_form .close_icon {
+.header .search_form .close_search {
   position: absolute;
-  top: 50%;
+  top: 0;
   right: 5px;
-  transform: translateY(-50%);
   cursor: pointer;
-  font-size: 12px;
-  pointer-events: none;
+  font-weight: 900;
+  color: crimson;
 }

@@ -15,7 +15,7 @@ const Search = () => {
         <span className="material-icons">search</span>
         <span>Search</span>
       </div>
-      {/* <div className="close_search">&times;</div> */}
+      <div className="close_search">&times;</div>
     </form>
   );
 };
