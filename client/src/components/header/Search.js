@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDataAPI } from '../../utils/fetchData';
 import { GLOBALTYPES } from '../../redux/actions/globalTypes';
+import { Link } from 'react-router-dom';
 
 const Search = () => {
   const [search, setSearch] = useState('');
@@ -34,6 +35,12 @@ const Search = () => {
         <span>Search</span>
       </div>
       <div className="close_search">&times;</div>
+
+      <div className="users">
+        {users.map((user) => {
+          return <Link key={user._id} to={`/profile/${user._id}`}></Link>;
+        })}
+      </div>
     </form>
   );
 };
