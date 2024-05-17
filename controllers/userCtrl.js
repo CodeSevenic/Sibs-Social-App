@@ -2,6 +2,7 @@ const Users = require('../models/userModel');
 
 const userCtrl = {
   searchUser: async (req, res) => {
+    console.log(req.query.username);
     try {
       const users = await Users.find({
         username: { $regex: req.query.username },

@@ -1,9 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { getDataAPI } from '../../utils/fetchData';
+import { GLOBALTYPES } from '../../redux/actions/globalTypes';
 
 const Search = () => {
   const [search, setSearch] = useState('');
   const [users, setUsers] = useState([]);
+
+  const { auth } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (search && auth.token) {
+      getDataAPI(`search?username=${search}`, auth.token)
+        .then((res) => setUsers(res.data.users))
+        .catch((err) => {
+          dispatch({ type: GLOBALTYPES.ALERT, payload: { error: err.response.data.msg } });
+        });
+    }
+  }, [search, auth.token, dispatch]);
+
   return (
     <form className="search_form">
       <input
