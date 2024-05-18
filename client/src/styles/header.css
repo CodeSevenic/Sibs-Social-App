@@ -110,4 +110,8 @@
     bottom: 100%;
     top: auto;
   }
+
+  .header .search_form {
+    width: 100%;
+  }
 }
