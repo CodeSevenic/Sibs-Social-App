@@ -41,7 +41,7 @@ const Search = () => {
         {users.map((user) => {
           return (
             <Link key={user._id} to={`/profile/${user._id}`}>
-              <UserCard user={user} />
+              <UserCard user={user} border={'border'} />
             </Link>
           );
         })}
