@@ -118,4 +118,8 @@
   .header .logo {
     margin: auto;
   }
+
+  .header .logo .navbar-brand {
+    font-size: 1.5rem;
+  }
 }
