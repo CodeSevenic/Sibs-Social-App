@@ -85,4 +85,6 @@
   min-width: 250px;
   background-color: #fafafa;
   max-height: calc(100vh - 150px);
+  overflow: auto;
+  margin-top: 3px;
 }
